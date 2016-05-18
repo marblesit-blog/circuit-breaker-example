@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="users")
-public class User {
+public class UserEntity {
 
 	@Id
 	@Column(name="id")
@@ -22,7 +22,7 @@ public class User {
 
 	@OneToMany
 	@JoinColumn(name="user_id")
-	private Set<EmailAddress> emailAddresses;
+	private Set<EmailAddressEntity> emailAddresses;
 
 	public Long getId() {
 		return id;
@@ -32,7 +32,7 @@ public class User {
 		return name;
 	}
 
-	public Set<EmailAddress> getEmailAddresses() {
+	public Set<EmailAddressEntity> getEmailAddresses() {
 		return emailAddresses;
 	}
 

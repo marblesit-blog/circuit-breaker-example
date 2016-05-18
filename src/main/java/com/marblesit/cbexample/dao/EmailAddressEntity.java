@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="email_addresses")
-public class EmailAddress {
+public class EmailAddressEntity {
 
 	@Id
 	@Column(name="id")

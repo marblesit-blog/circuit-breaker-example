@@ -1,23 +1,24 @@
 package com.marblesit.cbexample.rest;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.marblesit.cbexample.dao.UserRepository;
+import com.marblesit.cbexample.service.User;
+import com.marblesit.cbexample.service.UserService;
 
 @RestController
 public class ExampleRestController {
 
 	@Autowired
-	UserRepository repo;
+	private UserService userService;
 
-	@RequestMapping(path="/member/{id}", method=RequestMethod.GET)
-	public @ResponseBody String getMemeber(@PathVariable long id) {
-		repo.findAll().forEach(user -> System.out.println(user));
-		return "Hello";
+	@RequestMapping(path="/users", method=RequestMethod.GET)
+	public @ResponseBody Collection<User> getUsers() {
+		return userService.getAllUsers();
 	}
 }
