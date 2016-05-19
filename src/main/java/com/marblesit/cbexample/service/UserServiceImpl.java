@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	private UserRepository repo;
 
 	@Override
-	@CircuitBreaker(useThreads=false)
+	@CircuitBreaker
 	public Collection<User> getAllUsers() {
 		return
 			StreamSupport.stream(repo.findAll().spliterator(), false).
